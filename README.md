@@ -12,7 +12,7 @@
 
 ## コンパイル方法（例）
 
-ただし、最新のGCCがパスの通った場所にあるとする。また、`CMAKE_INSTALL_PREFIX`/include以下にBoostがインストールされているとする。
+ただし、最新のGCCがパスの通った場所にあるとする。また、`${CMAKE_INSTALL_PREFIX}/include`以下にBoostがインストールされているとする。
 
     env CC=gcc CXX=g++ \
       cmake \
