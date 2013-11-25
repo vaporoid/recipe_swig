@@ -1,0 +1,8 @@
+SET_SOURCE_FILES_PROPERTIES(bridge_lua.i PROPERTIES CPLUSPLUS ON)
+SWIG_ADD_MODULE(bridge_lua lua bridge_lua.i bridge.cpp)
+SWIG_LINK_LIBRARIES(bridge_lua lua)
+SET_TARGET_PROPERTIES(bridge_lua PROPERTIES PREFIX "")
+
+SET_SOURCE_FILES_PROPERTIES(bridge_java.i PROPERTIES CPLUSPLUS ON)
+SWIG_ADD_MODULE(bridge_java java bridge_java.i bridge.cpp)
+SET_TARGET_PROPERTIES(bridge_java PROPERTIES PREFIX "")
