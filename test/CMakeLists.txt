@@ -1,0 +1,25 @@
+FUNCTION(VAPOROID_ADD_TEST_LUA name)
+  ADD_TEST(NAME ${name}
+    COMMAND env
+      "CMAKE_CURRENT_SOURCE_DIR=${CMAKE_CURRENT_SOURCE_DIR}"
+      "CMAKE_CURRENT_BINARY_DIR=${CMAKE_CURRENT_BINARY_DIR}"
+      "LUA_PATH=${CMAKE_SOURCE_DIR}/src/?.lua;;"
+      "LUA_CPATH=${CMAKE_BINARY_DIR}/src/?.so;;"
+      lua ${name}.lua
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+  )
+ENDFUNCTION(VAPOROID_ADD_TEST_LUA)
+
+FUNCTION(VAPOROID_ADD_TEST_JAVA name)
+  ADD_JAR(${name}
+    ${name}.java
+    ${CMAKE_BINARY_DIR}/src/Bridge.java
+    ${CMAKE_BINARY_DIR}/src/BridgeJNI.java
+  )
+  ADD_TEST(NAME ${name}
+    COMMAND ${Java_JAVA_EXECUTABLE} -classpath ${name}.jar ${name} ${CMAKE_BINARY_DIR}/src/bridge_java.jnilib
+  )
+ENDFUNCTION(VAPOROID_ADD_TEST_JAVA)
+
+VAPOROID_ADD_TEST_LUA(test_lua)
+VAPOROID_ADD_TEST_JAVA(TestJava)
