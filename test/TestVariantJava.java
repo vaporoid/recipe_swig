@@ -45,13 +45,13 @@ public class TestVariantJava {
       System.out.println(v.type_name());
       bridge.get_variant1_blank(v);
 
-      v.set(bridge.make_variant1_double(42));
+      v.set(bridge.new_variant1_double(42));
       System.out.println(v);
       System.out.println(v.which());
       System.out.println(v.type_name());
       System.out.println(bridge.get_variant1_double(v));
 
-      v.set(bridge.make_variant1_string("foo"));
+      v.set(bridge.new_variant1_string("foo"));
       System.out.println(v);
       System.out.println(v.which());
       System.out.println(v.type_name());

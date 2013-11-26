@@ -4,15 +4,6 @@
 #include <boost/spirit/include/qi.hpp>
 #include "bridge.hpp"
 
-void put_string(const std::string& value) {
-  std::cout << BOOST_CURRENT_FUNCTION << ": " << value << std::endl;
-}
-
-std::string get_string() {
-  std::cout << BOOST_CURRENT_FUNCTION << std::endl;
-  return "foo";
-}
-
 boost::optional<std::string> get_empty_optional_string() {
   return boost::none;
 }

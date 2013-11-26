@@ -6,10 +6,6 @@ public class TestOptionalJava {
     System.load(path);
     bridge = new bridge_java();
 
-    bridge.put_string("foo");
-    String s = bridge.get_string();
-    System.out.println(s);
-
     {
       optional_int v = new optional_int();
       System.out.println(v.is_initialized());

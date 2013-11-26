@@ -1,9 +1,5 @@
 local bridge = require("bridge_lua")
 
-bridge.put_string("foo")
-local s = bridge.get_string()
-print(s)
-
 local v = bridge.optional_int()
 print(v:is_initialized())
 print(v:get_value_or(69))

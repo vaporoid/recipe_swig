@@ -31,7 +31,7 @@ public class TestAnyJava {
     }
 
     {
-      any v = bridge.make_any_int(69);
+      any v = bridge.new_any_int(69);
       assert !v.empty();
       System.out.println(bridge.get_any_int(v));
       System.out.println(v.type_name());

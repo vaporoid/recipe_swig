@@ -10,9 +10,6 @@
 #include <boost/variant/get.hpp>
 #include <boost/variant/recursive_wrapper.hpp>
 
-void put_string(const std::string& value);
-std::string get_string();
-
 boost::optional<std::string> get_empty_optional_string();
 boost::optional<std::string> get_optional_string();
 

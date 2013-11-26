@@ -16,7 +16,7 @@ assert(not v:empty())
 bridge.get_any_sample(v):run();
 v:set(bridge.get_empty_any());
 
-local v = bridge.make_any_int(69);
+local v = bridge.new_any_int(69);
 assert(not v:empty())
 print(bridge.get_any_int(v))
 print(v:type_name())
