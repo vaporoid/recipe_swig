@@ -10,9 +10,6 @@
 #include <boost/variant/get.hpp>
 #include <boost/variant/recursive_wrapper.hpp>
 
-void put_string(const std::string& value);
-std::string get_string();
-
 boost::optional<std::string> get_empty_optional_string();
 boost::optional<std::string> get_optional_string();
 
@@ -41,5 +38,9 @@ struct node {
 };
 
 variant2 get_variant2();
+
+typedef boost::variant<int, char> variant3;
+
+variant3 parse_variant3(const std::string& value);
 
 #endif

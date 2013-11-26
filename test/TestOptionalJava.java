@@ -1,11 +1,10 @@
 public class TestOptionalJava {
+  private static bridge_java bridge;
+
   public static void main(String[] args) {
     String path = args[0];
     System.load(path);
-
-    Bridge.put_string("foo");
-    String s = Bridge.get_string();
-    System.out.println(s);
+    bridge = new bridge_java();
 
     {
       optional_int v = new optional_int();
@@ -26,10 +25,10 @@ public class TestOptionalJava {
     }
 
     {
-      optional_string v = Bridge.get_empty_optional_string();
+      optional_string v = bridge.get_empty_optional_string();
       assert !v.is_initialized();
 
-      v.set(Bridge.get_optional_string());
+      v.set(bridge.get_optional_string());
       assert v.is_initialized();
       System.out.println(v.get());
     }

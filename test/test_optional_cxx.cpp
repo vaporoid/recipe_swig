@@ -7,10 +7,6 @@
 #include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(test_optional) {
-  put_string("foo");
-  auto s = get_string();
-  std::cout << s << "\n";
-
   {
     boost::optional<int> v { };
     std::cout << v << "\n";

@@ -7,14 +7,14 @@
 // #include <boost/mpl/bool.hpp>
 // BOOST_MPL_ASSERT((boost::mpl::bool_<BOOST_VARIANT_LIMIT_TYPES == 20>));
 
-template <typename U, typename T>
-inline U make_variant(const T& value) {
-  return U(value);
+template <typename V, typename T>
+inline V new_variant(const T& value) {
+  return V(value);
 }
 
-template <typename U, typename T>
-inline const U& get_variant(const T& value) {
-  return boost::get<U>(value);
+template <typename V, typename T>
+inline const T& get_variant(const V& value) {
+  return boost::get<T>(value);
 }
 %}
 
@@ -64,8 +64,13 @@ namespace boost {
   class recursive_wrapper {};
 }
 
-template <typename U, typename T>
-U make_variant(const T&);
+template <typename V, typename T>
+V new_variant(const T&);
 
-template <typename U, typename T>
-U get_variant(const T&);
+template <typename V, typename T>
+T get_variant(const V&);
+
+%define REGISTER_VARIANT(variant, name, type)
+%template(new_ ## variant ## _ ## name) new_variant<variant, type>;
+%template(get_ ## variant ## _ ## name) get_variant<variant, type>;
+%enddef
