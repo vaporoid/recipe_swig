@@ -1,8 +1,12 @@
+FUNCTION(VAPOROID_ADD_TEST_CXX name)
+  ADD_EXECUTABLE(${name} ${name}.cpp ${CMAKE_SOURCE_DIR}/src/bridge.cpp)
+  TARGET_LINK_LIBRARIES(${name} boost_unit_test_framework)
+  ADD_TEST(${name} ${name})
+ENDFUNCTION(VAPOROID_ADD_TEST_CXX)
+
 FUNCTION(VAPOROID_ADD_TEST_LUA name)
   ADD_TEST(NAME ${name}
     COMMAND env
-      "CMAKE_CURRENT_SOURCE_DIR=${CMAKE_CURRENT_SOURCE_DIR}"
-      "CMAKE_CURRENT_BINARY_DIR=${CMAKE_CURRENT_BINARY_DIR}"
       "LUA_PATH=${CMAKE_SOURCE_DIR}/src/?.lua;;"
       "LUA_CPATH=${CMAKE_BINARY_DIR}/src/?.so;;"
       lua ${name}.lua
@@ -15,6 +19,8 @@ FUNCTION(VAPOROID_ADD_TEST_JAVA name)
     ${name}.java
     ${CMAKE_BINARY_DIR}/src/Bridge.java
     ${CMAKE_BINARY_DIR}/src/BridgeJNI.java
+    ${CMAKE_BINARY_DIR}/src/any.java
+    ${CMAKE_BINARY_DIR}/src/blank.java
     ${CMAKE_BINARY_DIR}/src/optional_int.java
     ${CMAKE_BINARY_DIR}/src/optional_sample.java
     ${CMAKE_BINARY_DIR}/src/optional_string.java
@@ -28,5 +34,14 @@ FUNCTION(VAPOROID_ADD_TEST_JAVA name)
   )
 ENDFUNCTION(VAPOROID_ADD_TEST_JAVA)
 
-VAPOROID_ADD_TEST_LUA(test_lua)
-VAPOROID_ADD_TEST_JAVA(TestJava)
+VAPOROID_ADD_TEST_CXX(test_optional_cxx)
+VAPOROID_ADD_TEST_LUA(test_optional_lua)
+VAPOROID_ADD_TEST_JAVA(TestOptionalJava)
+
+VAPOROID_ADD_TEST_CXX(test_any_cxx)
+VAPOROID_ADD_TEST_LUA(test_any_lua)
+VAPOROID_ADD_TEST_JAVA(TestAnyJava)
+
+VAPOROID_ADD_TEST_CXX(test_variant_cxx)
+VAPOROID_ADD_TEST_LUA(test_variant_lua)
+VAPOROID_ADD_TEST_JAVA(TestVariantJava)
