@@ -1,6 +1,7 @@
 %{
 #include <boost/variant/variant.hpp>
 #include <boost/variant/get.hpp>
+#include <boost/variant/recursive_wrapper.hpp>
 
 // #include <boost/mpl/assert.hpp>
 // #include <boost/mpl/bool.hpp>
@@ -58,6 +59,9 @@ namespace boost {
       }
     }
   };
+
+  template <typename T>
+  class recursive_wrapper {};
 }
 
 template <typename U, typename T>
