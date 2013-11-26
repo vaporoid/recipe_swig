@@ -29,6 +29,7 @@ FUNCTION(VAPOROID_ADD_TEST_JAVA name)
     ${CMAKE_BINARY_DIR}/src/variant1.java
     ${CMAKE_BINARY_DIR}/src/variant2.java
     ${CMAKE_BINARY_DIR}/src/variant2_vector.java
+    ${CMAKE_BINARY_DIR}/src/variant3.java
   )
   ADD_TEST(NAME ${name}
     COMMAND ${Java_JAVA_EXECUTABLE}

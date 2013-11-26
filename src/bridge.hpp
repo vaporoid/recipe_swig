@@ -42,4 +42,8 @@ struct node {
 
 variant2 get_variant2();
 
+typedef boost::variant<int, char> variant3;
+
+variant3 parse_variant3(const std::string& value);
+
 #endif

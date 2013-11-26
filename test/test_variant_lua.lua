@@ -48,3 +48,11 @@ local function fn (v, depth)
 end
 
 fn(bridge.get_variant2(), 0)
+
+local v = bridge.parse_variant3("42")
+assert(v:which() == 0)
+assert(bridge.get_variant3_int(v) == 42)
+
+local v = bridge.parse_variant3("x")
+assert(v:which() == 1)
+assert(bridge.get_variant3_char(v) == "x")

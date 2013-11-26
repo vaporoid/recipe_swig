@@ -5,6 +5,11 @@ template <typename T>
 inline boost::any make_any(const T& value) {
   return boost::any(value);
 }
+
+template <typename T>
+inline T get_any(const boost::any& value) {
+  return boost::any_cast<T>(value);
+}
 %}
 
 namespace boost {
@@ -32,3 +37,6 @@ namespace boost {
 
 template <typename T>
 boost::any make_any(const T&);
+
+template <typename T>
+T get_any(const boost::any&);

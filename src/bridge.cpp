@@ -1,5 +1,7 @@
 #include <iostream>
+#include <stdexcept>
 #include <boost/current_function.hpp>
+#include <boost/spirit/include/qi.hpp>
 #include "bridge.hpp"
 
 void put_string(const std::string& value) {
@@ -72,4 +74,17 @@ variant2 get_variant2() {
       }
     }
   };
+}
+
+// http://d.hatena.ne.jp/faith_and_brave/20100618/1276843423
+variant3 parse_variant3(const std::string& value) {
+  const boost::spirit::qi::rule<std::string::const_iterator, variant3()> rule
+      = boost::spirit::qi::int_
+      | boost::spirit::qi::char_;
+
+  variant3 result;
+  if (!boost::spirit::qi::parse(value.begin(), value.end(), rule, result)) {
+    throw std::runtime_error("could not parse");
+  }
+  return result;
 }

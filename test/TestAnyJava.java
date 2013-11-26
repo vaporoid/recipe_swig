@@ -11,26 +11,26 @@ public class TestAnyJava {
     {
       any v = Bridge.get_any_int();
       assert !v.empty();
-      System.out.println(Bridge.any_cast_int(v));
+      System.out.println(Bridge.get_any_int(v));
     }
 
     {
       any v = Bridge.get_any_string();
       assert !v.empty();
-      System.out.println(Bridge.any_cast_string(v));
+      System.out.println(Bridge.get_any_string(v));
     }
 
     {
       any v = Bridge.get_any_sample();
       assert !v.empty();
-      Bridge.any_cast_sample(v).run();
+      Bridge.get_any_sample(v).run();
       v.set(Bridge.get_empty_any());
     }
 
     {
       any v = Bridge.make_any_int(69);
       assert !v.empty();
-      System.out.println(Bridge.any_cast_int(v));
+      System.out.println(Bridge.get_any_int(v));
       System.out.println(v.type_name());
     }
   }
