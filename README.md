@@ -18,7 +18,7 @@
     cd build
     env CC=gcc CXX=g++ \
       cmake \
-        -DCMAKE_CXX_FLAGS="-Wall -W -Wno-unused-local-typedefs -Wno-missing-field-initializers -Wno-unused-parameter -std=c++11" \
+        -DCMAKE_CXX_FLAGS="-fno-strict-aliasing -Wall -W -Wno-unused-local-typedefs -Wno-missing-field-initializers -Wno-unused-parameter -std=c++11" \
         -DCMAKE_BUILD_TYPE=release \
         -DCMAKE_INSTALL_PREFIX=/opt/vaporoid/package/prefix ..
     make
