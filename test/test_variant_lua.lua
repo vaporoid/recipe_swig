@@ -9,13 +9,13 @@ print(v:which())
 print(v:type_name())
 bridge.get_variant1_blank(v)
 
-v:set(bridge.make_variant1_double(42))
+v:set(bridge.new_variant1_double(42))
 print(swig_type(v))
 print(v:which())
 print(v:type_name())
 print(bridge.get_variant1_double(v))
 
-v:set(bridge.make_variant1_string("foo"))
+v:set(bridge.new_variant1_string("foo"))
 print(swig_type(v))
 print(v:which())
 print(v:type_name())
@@ -48,3 +48,11 @@ local function fn (v, depth)
 end
 
 fn(bridge.get_variant2(), 0)
+
+local v = bridge.parse_variant3("42")
+assert(v:which() == 0)
+assert(bridge.get_variant3_int(v) == 42)
+
+local v = bridge.parse_variant3("x")
+assert(v:which() == 1)
+assert(bridge.get_variant3_char(v) == "x")
