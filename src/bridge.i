@@ -6,6 +6,7 @@
 %include any.i
 %include blank.i
 %include optional.i
+%include variant.i
 %include bridge.hpp
 
 %template(optional_int)    boost::optional<int>;
@@ -19,3 +20,10 @@
 %template(any_cast_int)    boost::any_cast<int>;
 %template(any_cast_string) boost::any_cast<std::string>;
 %template(any_cast_sample) boost::any_cast<sample>;
+
+%template(variant1) boost::variant<boost::blank, double, std::string>;
+%template(make_variant1_double) make_variant<variant1, double>;
+%template(make_variant1_string) make_variant<variant1, std::string>;
+%template(get_variant1_blank)  get_variant<boost::blank, variant1>;
+%template(get_variant1_double) get_variant<double,       variant1>;
+%template(get_variant1_string) get_variant<std::string,  variant1>;

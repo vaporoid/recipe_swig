@@ -5,6 +5,8 @@
 #include <boost/any.hpp>
 #include <boost/blank.hpp>
 #include <boost/optional.hpp>
+#include <boost/variant/variant.hpp>
+#include <boost/variant/get.hpp>
 
 void put_string(const std::string& value);
 std::string get_string();
@@ -25,5 +27,7 @@ public:
   sample& operator=(const sample& rhs);
   void run();
 };
+
+typedef boost::variant<boost::blank, double, std::string> variant1;
 
 #endif
