@@ -1,2 +1,2 @@
-%module Bridge
+%module bridge_java
 %include bridge.i

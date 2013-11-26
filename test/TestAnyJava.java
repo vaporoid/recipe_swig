@@ -1,36 +1,39 @@
 public class TestAnyJava {
+  private static bridge_java bridge;
+
   public static void main(String[] args) {
     String path = args[0];
     System.load(path);
+    bridge = new bridge_java();
 
     {
-      any v = Bridge.get_empty_any();
+      any v = bridge.get_empty_any();
       assert v.empty();
     }
 
     {
-      any v = Bridge.get_any_int();
+      any v = bridge.get_any_int();
       assert !v.empty();
-      System.out.println(Bridge.get_any_int(v));
+      System.out.println(bridge.get_any_int(v));
     }
 
     {
-      any v = Bridge.get_any_string();
+      any v = bridge.get_any_string();
       assert !v.empty();
-      System.out.println(Bridge.get_any_string(v));
+      System.out.println(bridge.get_any_string(v));
     }
 
     {
-      any v = Bridge.get_any_sample();
+      any v = bridge.get_any_sample();
       assert !v.empty();
-      Bridge.get_any_sample(v).run();
-      v.set(Bridge.get_empty_any());
+      bridge.get_any_sample(v).run();
+      v.set(bridge.get_empty_any());
     }
 
     {
-      any v = Bridge.make_any_int(69);
+      any v = bridge.make_any_int(69);
       assert !v.empty();
-      System.out.println(Bridge.get_any_int(v));
+      System.out.println(bridge.get_any_int(v));
       System.out.println(v.type_name());
     }
   }

@@ -17,8 +17,8 @@ ENDFUNCTION(VAPOROID_ADD_TEST_LUA)
 FUNCTION(VAPOROID_ADD_TEST_JAVA name)
   ADD_JAR(${name}
     ${name}.java
-    ${CMAKE_BINARY_DIR}/src/Bridge.java
-    ${CMAKE_BINARY_DIR}/src/BridgeJNI.java
+    ${CMAKE_BINARY_DIR}/src/bridge_java.java
+    ${CMAKE_BINARY_DIR}/src/bridge_javaJNI.java
     ${CMAKE_BINARY_DIR}/src/any.java
     ${CMAKE_BINARY_DIR}/src/blank.java
     ${CMAKE_BINARY_DIR}/src/node.java

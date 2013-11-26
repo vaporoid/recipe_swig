@@ -1,4 +1,6 @@
 public class TestVariantJava {
+  private static bridge_java bridge;
+
   public static void indent(int depth) {
     for (int i = 0; i < depth; ++i) {
       System.out.print("  ");
@@ -13,12 +15,12 @@ public class TestVariantJava {
         break;
       case 1:
         indent(depth);
-        System.out.println("string:" + Bridge.get_variant2_string(v));
+        System.out.println("string:" + bridge.get_variant2_string(v));
         break;
       case 2:
         indent(depth);
         System.out.println("{");
-        variant2_vector data = Bridge.get_variant2_node(v).getData();
+        variant2_vector data = bridge.get_variant2_node(v).getData();
         for (int i = 0; i < data.size(); ++i) {
           fn(data.get(i), depth + 1);
         }
@@ -31,6 +33,7 @@ public class TestVariantJava {
   public static void main(String[] args) {
     String path = args[0];
     System.load(path);
+    bridge = new bridge_java();
 
     blank b = new blank();
     System.out.println(b);
@@ -40,34 +43,34 @@ public class TestVariantJava {
       System.out.println(v);
       System.out.println(v.which());
       System.out.println(v.type_name());
-      Bridge.get_variant1_blank(v);
+      bridge.get_variant1_blank(v);
 
-      v.set(Bridge.make_variant1_double(42));
+      v.set(bridge.make_variant1_double(42));
       System.out.println(v);
       System.out.println(v.which());
       System.out.println(v.type_name());
-      System.out.println(Bridge.get_variant1_double(v));
+      System.out.println(bridge.get_variant1_double(v));
 
-      v.set(Bridge.make_variant1_string("foo"));
+      v.set(bridge.make_variant1_string("foo"));
       System.out.println(v);
       System.out.println(v.which());
       System.out.println(v.type_name());
-      System.out.println(Bridge.get_variant1_string(v));
+      System.out.println(bridge.get_variant1_string(v));
 
     }
 
-    fn(Bridge.get_variant2(), 0);
+    fn(bridge.get_variant2(), 0);
 
     {
-      variant3 v = Bridge.parse_variant3("42");
+      variant3 v = bridge.parse_variant3("42");
       assert v.which() == 0;
-      assert Bridge.get_variant3_int(v) == 42;
+      assert bridge.get_variant3_int(v) == 42;
     }
 
     {
-      variant3 v = Bridge.parse_variant3("x");
+      variant3 v = bridge.parse_variant3("x");
       assert v.which() == 1;
-      assert Bridge.get_variant3_char(v) == 'x';
+      assert bridge.get_variant3_char(v) == 'x';
     }
   }
 }
