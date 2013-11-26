@@ -12,6 +12,7 @@ namespace boost {
   public:
     any();
     any(const any&);
+
     bool empty() const;
 
     %extend {
@@ -20,7 +21,7 @@ namespace boost {
       }
 
       const char* type_name() const {
-        return (*self).type().name();
+        return self->type().name();
       }
     }
   };
