@@ -1,3 +1,9 @@
+FUNCTION(VAPOROID_ADD_TEST_CXX name)
+  ADD_EXECUTABLE(${name} ${name}.cpp ${CMAKE_SOURCE_DIR}/src/bridge.cpp)
+  TARGET_LINK_LIBRARIES(${name} boost_unit_test_framework)
+  ADD_TEST(${name} ${name})
+ENDFUNCTION(VAPOROID_ADD_TEST_CXX)
+
 FUNCTION(VAPOROID_ADD_TEST_LUA name)
   ADD_TEST(NAME ${name}
     COMMAND env
@@ -26,5 +32,6 @@ FUNCTION(VAPOROID_ADD_TEST_JAVA name)
   )
 ENDFUNCTION(VAPOROID_ADD_TEST_JAVA)
 
+VAPOROID_ADD_TEST_CXX(test_optional_cxx)
 VAPOROID_ADD_TEST_LUA(test_optional_lua)
 VAPOROID_ADD_TEST_JAVA(TestOptionalJava)
