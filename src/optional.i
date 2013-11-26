@@ -12,7 +12,7 @@ namespace boost {
     optional(const optional&);
 
     const T& get() const;
-    const T& get_value_or(const T& default_) const;
+    const T& get_value_or(const T&) const;
 
     %extend {
       void set(const T& rhs) {

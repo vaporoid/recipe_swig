@@ -33,6 +33,7 @@ sample::~sample() {
 
 sample& sample::operator=(const sample& rhs) {
   std::cout << BOOST_CURRENT_FUNCTION << ": " << this << ": " << &rhs << std::endl;
+  return *this;
 }
 
 void sample::run() {
