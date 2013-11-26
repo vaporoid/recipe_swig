@@ -1,4 +1,4 @@
-public class TestJava {
+public class TestOptionalJava {
   public static void main(String[] args) {
     String path = args[0];
     System.load(path);
