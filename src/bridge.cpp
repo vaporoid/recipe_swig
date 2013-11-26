@@ -19,6 +19,22 @@ boost::optional<std::string> get_optional_string() {
   return std::string("foo");
 }
 
+boost::any get_empty_any() {
+  return boost::any();
+}
+
+boost::any get_any_int() {
+  return boost::any(42);
+}
+
+boost::any get_any_string() {
+  return boost::any(std::string("foo"));
+}
+
+boost::any get_any_sample() {
+  return boost::any(sample());
+}
+
 sample::sample() {
   std::cout << BOOST_CURRENT_FUNCTION << ": " << this << std::endl;
 }

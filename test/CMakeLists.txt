@@ -19,6 +19,7 @@ FUNCTION(VAPOROID_ADD_TEST_JAVA name)
     ${name}.java
     ${CMAKE_BINARY_DIR}/src/Bridge.java
     ${CMAKE_BINARY_DIR}/src/BridgeJNI.java
+    ${CMAKE_BINARY_DIR}/src/any.java
     ${CMAKE_BINARY_DIR}/src/blank.java
     ${CMAKE_BINARY_DIR}/src/optional_int.java
     ${CMAKE_BINARY_DIR}/src/optional_sample.java
@@ -36,6 +37,10 @@ ENDFUNCTION(VAPOROID_ADD_TEST_JAVA)
 VAPOROID_ADD_TEST_CXX(test_optional_cxx)
 VAPOROID_ADD_TEST_LUA(test_optional_lua)
 VAPOROID_ADD_TEST_JAVA(TestOptionalJava)
+
+VAPOROID_ADD_TEST_CXX(test_any_cxx)
+VAPOROID_ADD_TEST_LUA(test_any_lua)
+VAPOROID_ADD_TEST_JAVA(TestAnyJava)
 
 VAPOROID_ADD_TEST_CXX(test_variant_cxx)
 VAPOROID_ADD_TEST_LUA(test_variant_lua)
