@@ -1,4 +1,32 @@
 local bridge = require("bridge_lua")
 
 bridge.put_string("foo")
-print(bridge.get_string())
+local s = bridge.get_string()
+print(s)
+
+local v = bridge.optional_int()
+print(v:is_initialized())
+print(v:get_value_or(69))
+v:set(105)
+print(v:is_initialized())
+print(v:get_value_or(69))
+
+local v = bridge.optional_int(42)
+print(v:is_initialized())
+print(v:get_value_or(69))
+v:reset()
+print(v:is_initialized())
+print(v:get_value_or(69))
+
+local v = bridge.get_empty_optional_string()
+assert(not v:is_initialized())
+v:set(bridge.get_optional_string())
+assert(v:is_initialized())
+print(v:get())
+
+local v = bridge.optional_sample()
+print("start")
+v:set(bridge.sample())
+v:get():run()
+v:reset()
+print("end")
