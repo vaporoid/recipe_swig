@@ -55,3 +55,21 @@ sample& sample::operator=(const sample& rhs) {
 void sample::run() {
   std::cout << BOOST_CURRENT_FUNCTION << ": " << this << std::endl;
 }
+
+variant2 get_variant2() {
+  return variant2 {
+    node {
+      {
+        { boost::blank() },
+        { "foo" },
+        { "bar" },
+        node {
+          {
+            { "baz" },
+            { "qux" }
+          }
+        }
+      }
+    }
+  };
+}
