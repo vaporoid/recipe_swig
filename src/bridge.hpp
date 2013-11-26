@@ -2,6 +2,7 @@
 #define BRIDGE_HPP
 
 #include <string>
+#include <boost/blank.hpp>
 #include <boost/optional.hpp>
 
 void put_string(const std::string& value);

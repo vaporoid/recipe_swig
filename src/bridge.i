@@ -3,6 +3,7 @@
 %}
 
 %include std_string.i
+%include blank.i
 %include optional.i
 
 %template(optional_int)    boost::optional<int>;
