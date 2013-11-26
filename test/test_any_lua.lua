@@ -19,3 +19,4 @@ v:set(bridge.get_empty_any());
 local v = bridge.make_any_int(69);
 assert(not v:empty())
 print(bridge.any_cast_int(v))
+print(v:type_name())

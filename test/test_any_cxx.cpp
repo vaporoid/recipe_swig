@@ -35,5 +35,6 @@ BOOST_AUTO_TEST_CASE(test_variant) {
     boost::any v(69);
     assert(!v.empty());
     std::cout << boost::any_cast<int>(v) << "\n";
+    std::cout << v.type().name() << "\n";
   }
 }

@@ -18,6 +18,10 @@ namespace boost {
       void set(const any& rhs) {
         *self = rhs;
       }
+
+      const char* type_name() const {
+        return (*self).type().name();
+      }
     }
   };
 
