@@ -79,3 +79,7 @@ variant3 parse_variant3(const std::string& value) {
   }
   return result;
 }
+
+void add(double a, double b, double* OUTPUT) {
+  *OUTPUT = a + b;
+}

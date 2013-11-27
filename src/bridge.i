@@ -2,6 +2,7 @@
 #include "bridge.hpp"
 %}
 
+%include typemaps.i
 %include std_string.i
 %include std_vector.i
 %include any.i
