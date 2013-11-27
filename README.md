@@ -17,7 +17,7 @@ SWIGの魔法の根源は、ヒューリスティックな知識の積み重ね�
 たとえば、Luaでは、
 
     local bridge = require("bridge_lua")
-    local result = add(42, 43)
+    local result = bridge.add(42, 43)
 
 のように呼びだすことができる[[3][26.4 Typemaps]]。ワォ！
 
@@ -86,7 +86,7 @@ Boost.Optional用のインタフェース定義を[optional.i][]のように与�
 `%template`の説明は難しく長い。とても大雑把に言うと、テンプレートを具現化して、新しい名前を導入する。名づけられた名前でアクセスできるようになる。たとえば、Luaでは、
 
     local bridge = require("bridge_lua")
-    local v = bridge.optional(42)
+    local v = bridge.optional_int(42)
     if v:is_initialized() then
       print(v:get_value_or(69))
     end
@@ -95,18 +95,27 @@ Boost.Optional用のインタフェース定義を[optional.i][]のように与�
 
 ### %templateの効用
 
-SWIGはマングリング規則に従って、適当に名前を決めてくれる。だけど、引数がたくさんあるテンプレートから名前を生成すると、とても長い名前になってしまうことがある。ところで、SWIGでJavaのインタフェースを生成すると、プロキシクラスと呼ばれるクラスも生成してくれる。そう、場合によっては、とても長い名前のクラスを。
+SWIGはマングリング規則に従って、適当に名前を決めてくれる。だけど、引数がたくさんあるテンプレートから名前を生成すると、とても長い名前になってしまうことがある。ところで、SWIGでJavaのインタフェースを生成すると、プロキシクラスを生成してくれる。そう、場合によっては、とても長い名前のクラスを。
 
 ひるがえって、Javaのクラス名は現実的に何文字まで許されるか。バイトコードの仕様よりも、ファイルシステムとオペレーションシステムの制約が先に立つのが現実だ。つまり、ファイル名の制約だ。こうして、名づけることは否応無しの現実となる。
 
 ## Boost.Any
 
-Boost.Any用のインタフェース定義を[any.i][]のように与えた。（続く）
+Boost.Any用のインタフェース定義を[any.i][]のように与えた。Boost.Anyについて語ることは特にないが、`REGISTER_ANY(name, type)`というSWIGマクロを定義している。
 
 ## Boost.Variant
 
-Boost.Variant用のインタフェース定義を[variant.i][]のように与えた。（続く）
+Boost.Variant用のインタフェース定義を[variant.i][]のように与えた。`make_recursive_variant`は未実装。
 
+* [blank.i][] : みんなだいすきblankさん（C++11では要らない子）。
+* [variant.i][] : Boost.Variant用のインタフェース定義。
+* [bridge.hpp][] : なんか宣言いろいろ。
+* [bridge.i][] : テンプレートの具現化とか。
+* [test_variant_cxx.cpp][] C++で書いたBoost.Variantのサンプル。
+* [test_variant_lua.lua][] 同じことをLuaでやろうとするサンプル。
+* [TestVariantJava.java][] 同じことをJavaでやろうとするサンプル。
+
+（続く）
 
 [1.1 Introduction]:           http://www.swig.org/Doc2.0/Preface.html#Preface_nn2
 [5.1.6 Parser Limitations]:   http://www.swig.org/Doc2.0/SWIG.html#SWIG_nn8
@@ -125,3 +134,7 @@ Boost.Variant用のインタフェース定義を[variant.i][]のように与え
 [blank.i]:    https://github.com/vaporoid/recipe_swig/blob/master/src/blank.i
 [variant.i]:  https://github.com/vaporoid/recipe_swig/blob/master/src/variant.i
 [bridge.i]:   https://github.com/vaporoid/recipe_swig/blob/master/src/bridge.i
+
+[test_variant_cxx.cpp]: https://github.com/vaporoid/recipe_swig/blob/master/test/test_variant_cxx.cpp
+[test_variant_lua.cpp]: https://github.com/vaporoid/recipe_swig/blob/master/test/test_variant_lua.lua
+[TestVariantJava.java]: https://github.com/vaporoid/recipe_swig/blob/master/test/TestVariantJava.java
