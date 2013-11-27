@@ -2,6 +2,7 @@
 #define BRIDGE_HPP
 
 #include <string>
+#include <type_traits>
 #include <vector>
 #include <boost/any.hpp>
 #include <boost/blank.hpp>
@@ -42,5 +43,7 @@ variant2 get_variant2();
 typedef boost::variant<int, char> variant3;
 
 variant3 parse_variant3(const std::string& value);
+
+void add(double a, double b, double* OUTPUT);
 
 #endif

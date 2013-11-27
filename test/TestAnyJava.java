@@ -36,5 +36,11 @@ public class TestAnyJava {
       System.out.println(bridge.get_any_int(v));
       System.out.println(v.type_name());
     }
+
+    {
+      double[] result = { 0 };
+      bridge.add(42, 69, result);
+      System.out.println(result[0]);
+    }
   }
 }
