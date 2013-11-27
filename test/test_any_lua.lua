@@ -20,3 +20,6 @@ local v = bridge.new_any_int(69);
 assert(not v:empty())
 print(bridge.get_any_int(v))
 print(v:type_name())
+
+local result = bridge.add(42, 69)
+print(result)
