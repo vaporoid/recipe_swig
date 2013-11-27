@@ -133,8 +133,9 @@ Boost.Variant用のインタフェース定義を[variant.i][]のように与え
 [any.i]:      https://github.com/vaporoid/recipe_swig/blob/master/src/any.i
 [blank.i]:    https://github.com/vaporoid/recipe_swig/blob/master/src/blank.i
 [variant.i]:  https://github.com/vaporoid/recipe_swig/blob/master/src/variant.i
+[bridge.hpp]: https://github.com/vaporoid/recipe_swig/blob/master/src/bridge.hpp
 [bridge.i]:   https://github.com/vaporoid/recipe_swig/blob/master/src/bridge.i
 
 [test_variant_cxx.cpp]: https://github.com/vaporoid/recipe_swig/blob/master/test/test_variant_cxx.cpp
-[test_variant_lua.cpp]: https://github.com/vaporoid/recipe_swig/blob/master/test/test_variant_lua.lua
+[test_variant_lua.lua]: https://github.com/vaporoid/recipe_swig/blob/master/test/test_variant_lua.lua
 [TestVariantJava.java]: https://github.com/vaporoid/recipe_swig/blob/master/test/TestVariantJava.java
